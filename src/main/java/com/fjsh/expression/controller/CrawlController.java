@@ -1,0 +1,25 @@
+package com.fjsh.expression.controller;
+
+import com.fjsh.expression.service.Icrawl;
+import com.fjsh.expression.serviceImpl.DmCrealImpl;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@Controller
+@RequestMapping("/crawl")
+public class CrawlController {
+
+    @ResponseBody
+    @RequestMapping("/dm")
+    public String getDmkt(HttpServletRequest request,
+                              HttpServletResponse response) {
+        Icrawl dmCrawl=new DmCrealImpl();
+        dmCrawl.crawl();
+        return "success……";
+    }
+
+}
